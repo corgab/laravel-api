@@ -1,0 +1,15 @@
+@import '~bootstrap/scss/bootstrap';
+
+// variabili
+@import 'partials/variables';
+
+// base styles
+@import 'partials/base';
+
+// componenti e layout
+@import 'partials/components';
+@import 'partials/layouts';
+
+// utilities
+@import 'partials/utilities';
+
