@@ -8,14 +8,16 @@ use App\Models\Project;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // $projects = Project::all();
 
-        $projects = Project::paginate(12);
+        $per_page = $request->perPage ?? 12;
+
+        $results = Project::with('technologies', 'type')->paginate($per_page);
         
         return response()->json([
-            'result' => $projects
+            'result' => $results
         ]);
     }
 }
