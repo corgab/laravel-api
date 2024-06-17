@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +20,11 @@ class Project extends Model
         'type_id',
         // 'technologies',
     ];
+
+    protected function serializeDate(DateTimeInterface $date): string
+    {
+        return $date->format('d M Y');
+    }
 
     public function type() {
         return $this->belongsTo(Type::class);
